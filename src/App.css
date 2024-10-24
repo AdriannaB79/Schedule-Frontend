@@ -60,3 +60,22 @@ td {
 h2 {
   text-align: center;
 }
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.day {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.shift {
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
