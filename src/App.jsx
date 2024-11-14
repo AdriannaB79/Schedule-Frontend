@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import NurseDashboard from "./components/NurseDashboard";
+import ChiefDashboard from "./components/ChiefDashboard";
+import ChiefManagement from "./pages/ChiefManagement";
+import NurseSchedule from "./pages/NurseSchedule";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const user = { name: "Ophelia Johnson", role: "chief" }; // Mock user, we can change to "nurse" to see the diference between the views
 
   return (
-    <>
+    <Router>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Header userName={user.name} />
+        <Navbar role={user.role} />
+        <main>
+          <Routes>
+            <Route path="/" element={<h1>Home Page - it works!</h1>} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/nurse-dashboard" element={<NurseDashboard />} />
+            <Route path="/chief-dashboard" element={<ChiefDashboard />} />
+            <Route path="/chief-management" element={<ChiefManagement />} />
+            <Route path="/schedule" element={<NurseSchedule />} />
+          </Routes>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
