@@ -38,7 +38,7 @@ const RegisterForm = () => {
       }}
     >
       <form onSubmit={handleSubmit}>
-        <h2>Rejestracja</h2>
+        <h2>Registration</h2>
         <table>
           <tbody>
             <tr>
