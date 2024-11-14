@@ -4,7 +4,7 @@ const ChiefDashboard = () => (
       Chief Dashboard
     </h2>
     <p className="text-gray-700">
-      You can manage shifts and view nurses' availability.
+      You can manage shifts and view nurses'Test commit availability.
     </p>
   </div>
 );
